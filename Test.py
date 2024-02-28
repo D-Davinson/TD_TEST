@@ -21,6 +21,21 @@ class TestCartePizzeria(unittest.TestCase):
         c = CartePizzeria()
         c.add_pizza(Mock(spec=Pizza))
         self.assertEqual(c.nb_pizzas(),1)
+    def test_remove_pizza(self):
+        c = CartePizzeria()
+        mock1 = Mock(spec=Pizza)
+        mock1.nom = "Napolitaine"
+        c.add_pizza(mock1)
+        mock2 = Mock(spec=Pizza)
+        mock2.nom = "Carnivore"
+        c.add_pizza(mock2)
+        c.remove_pizza("Napolitaine")
+        self.assertEqual(c.nb_pizzas(),1)
+
+        with self.assertRaises(CartePizzeriaException):
+            c.remove_pizza("Cabonara")
+    
+    
 
 __name__ == '__main__'
 unittest.main()
