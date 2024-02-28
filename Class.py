@@ -14,6 +14,9 @@ class CartePizzeria:
     def is_empty(self):
         return len(self.pizzas) == 0
     
+    def nb_pizzas(self):
+        return len(self.pizzas)
+    
     def add_pizza(self,pizza):
         return self.pizzas.append(pizza)
     
