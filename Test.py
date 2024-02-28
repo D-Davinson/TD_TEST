@@ -17,7 +17,10 @@ class TestCartePizzeria(unittest.TestCase):
         c.add_pizza(Mock(spec=Pizza))
         c.add_pizza(Mock(spec=Pizza))
         self.assertEqual(c.nb_pizzas(),4)
-
+    def test_add_pizza(self):
+        c = CartePizzeria()
+        c.add_pizza(Mock(spec=Pizza))
+        self.assertEqual(c.nb_pizzas(),1)
 
 __name__ == '__main__'
 unittest.main()
